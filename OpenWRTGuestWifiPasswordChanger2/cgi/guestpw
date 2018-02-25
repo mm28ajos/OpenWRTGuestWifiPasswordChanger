@@ -1,0 +1,18 @@
+#!/bin/ash
+PWD=$(cat /path/to/script/CurrentGuestPW.txt)
+SSID="ssid"
+THRESHOLD="4 am"
+
+echo "Content-Type:text/html;charset=utf-8"
+echo ""
+echo "<!DOCTYPE html>"
+echo "<html>"
+echo "<body>"
+echo "<h1>$SSID Wifi Password Page</h1>"
+echo "<div>The current password for $SSID is <b>$PWD</b></div>"
+echo "<div>Password exipres at $THRESHOLD everyday.</div>"
+echo "<h2>Login Android</h2>"
+echo "<div>Scan barcode below on Android to login.</div>"
+echo "<span><img src='/path/to/file/current_guest_wifi_pw_andorid_qr.svg'></span>"
+echo "</body>"
+echo "</html>"
