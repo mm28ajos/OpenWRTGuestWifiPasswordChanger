@@ -1,18 +1,21 @@
 #!/bin/ash
-PWD=$(cat /path/to/script/CurrentGuestPW.txt)
-SSID="ssid"
+GUEST_WIFI_SSID="ssid"
 THRESHOLD="4 am"
 
-echo "Content-Type:text/html;charset=utf-8"
-echo ""
-echo "<!DOCTYPE html>"
-echo "<html>"
-echo "<body>"
-echo "<h1>$SSID Wifi Password Page</h1>"
-echo "<div>The current password for $SSID is <b>$PWD</b></div>"
-echo "<div>Password exipres at $THRESHOLD everyday.</div>"
-echo "<h2>Login Android</h2>"
-echo "<div>Scan barcode below on Android to login.</div>"
-echo "<span><img src='/path/to/file/current_guest_wifi_pw_andorid_qr.svg'></span>"
-echo "</body>"
-echo "</html>"
+# assumes guest wifi has id 2
+if [ `uci get wireless.@wifi-iface[2].ssid` = $GUEST_WIFI_SSID ]; then
+  PWD=`uci get wireless.@wifi-iface[2].key`
+  echo "Content-Type:text/html;charset=utf-8"
+  echo ""
+  echo "<!DOCTYPE html>"
+  echo "<html>"
+  echo "<body>"
+  echo "<h1>$GUEST_WIFI_SSID Wifi Password Page</h1>"
+  echo "<div>The current password for wifi "$GUEST_WIFI_SSID" is <b>$PWD</b></div>"
+  echo "<div>Password exipres at $THRESHOLD everyday.</div>"
+  echo "<h2>Login Android</h2>"
+  echo "<div>Scan barcode below on Android to login.</div>"
+  echo "<span><img src='/general-cgi-resources/current_guest_wifi_pw_andorid_qr.svg'></span>"
+  echo "</body>"
+  echo "</html>"
+fi
