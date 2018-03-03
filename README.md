@@ -25,4 +25,10 @@ For example, add a cronjob changing the PSK every night at 4 a.m.
 0 4 * * * /root/ChangeGuestWifiPW.sh >/dev/null 2>&1
 ```
 
+## Start and Enavle Cron
+```
+/etc/init.d/cron start
+/etc/init.d/cron enable
+```
+
 Finally, modify the id and ssid of your guest wifi in the ChangeGuestWifiPW.sh script and access your guest PSK page by http(s)://xxx.xxx.xxx.xxx/cgi-bin/guestpw
