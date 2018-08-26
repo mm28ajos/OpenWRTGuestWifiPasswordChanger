@@ -15,6 +15,11 @@ mv scripts/ChangeGuestWifiPW.sh /root
 mv cgi/guestpw /www/cgi-bin/
 ```
 
+## make file executable
+```
+sudo chmod +x /www/cgi-bin/guestpw
+```
+
 ## Create Folder for Resources (QR-Code)
 ```
 mkdir /www/general-cgi-resources
