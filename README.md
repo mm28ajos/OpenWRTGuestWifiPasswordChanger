@@ -27,7 +27,7 @@ mkdir /www/general-cgi-resources
 ## Add Cronjob
 For example, add a cronjob changing the PSK every night at 4 a.m.
 ```
-0 4 * * * /root/ChangeGuestWifiPW.sh >/dev/null 2>&1
+0 4 * * * sh /root/ChangeGuestWifiPW.sh >/dev/null 2>&1
 ```
 
 ## Start and Enable Cron
